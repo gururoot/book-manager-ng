@@ -33,7 +33,7 @@ import { Book } from '../../../../core/models/book.model';
 })
 export class BookListComponent {
   
-  // Nuevos Output APIs de Angular 17+
+  // Nuevos Output APIs de Angular
   editBook = output<Book>();
   deleteBook = output<number>();
 
