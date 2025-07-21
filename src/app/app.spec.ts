@@ -3,7 +3,7 @@ import { App } from './app';
 
 describe('App', () => {
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
+    await TestBed.configureTestingModule({0
       imports: [App],
     }).compileComponents();
   });

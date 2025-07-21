@@ -1,0 +1,61 @@
+.book-list-container {
+    @apply bg-white rounded-lg shadow-lg;
+  }
+  
+  .search-container {
+    @apply mb-6;
+  }
+  
+  .table-container {
+    @apply overflow-x-auto;
+  }
+  
+  .book-table {
+    @apply w-full;
+  }
+  
+  .book-row {
+    @apply hover:bg-gray-50 transition-colors duration-150;
+  }
+  
+  .book-cell {
+    @apply text-sm py-4;
+  }
+  
+  .book-header {
+    @apply text-left font-semibold text-gray-700 bg-gray-50;
+  }
+  
+  .book-id-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800;
+  }
+  
+  .action-buttons {
+    @apply flex space-x-2;
+  }
+  
+  .edit-button {
+    @apply hover:bg-blue-50 text-blue-600;
+  }
+  
+  .delete-button {
+    @apply hover:bg-red-50 text-red-600;
+  }
+  
+  .empty-state {
+    @apply text-center py-12;
+  }
+  
+  @media (max-width: 768px) {
+    .book-table {
+      @apply text-sm;
+    }
+    
+    .book-cell {
+      @apply px-2 py-3;
+    }
+    
+    .action-buttons {
+      @apply flex-col space-y-1 space-x-0;
+    }
+  }

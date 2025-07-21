@@ -1,0 +1,81 @@
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()" class="space-y-6">
+  
+    <!-- Campo Nombre -->
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Nombre del libro</mat-label>
+      <input
+        matInput
+        formControlName="name"
+        placeholder="Ingresa el nombre del libro"
+        class="text-sm">
+      <mat-icon matSuffix>book</mat-icon>
+      @if (getErrorMessage('name')) {
+        <mat-error>{{ getErrorMessage('name') }}</mat-error>
+      }
+    </mat-form-field>
+  
+    <!-- Campo Autor -->
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Autor</mat-label>
+      <input
+        matInput
+        formControlName="author"
+        placeholder="Ingresa el nombre del autor"
+        class="text-sm">
+      <mat-icon matSuffix>person</mat-icon>
+      @if (getErrorMessage('author')) {
+        <mat-error>{{ getErrorMessage('author') }}</mat-error>
+      }
+    </mat-form-field>
+  
+    <!-- Campo Páginas -->
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Número de páginas</mat-label>
+      <input
+        matInput
+        type="number"
+        formControlName="pages"
+        placeholder="Ej: 250"
+        class="text-sm">
+      <mat-icon matSuffix>description</mat-icon>
+      @if (getErrorMessage('pages')) {
+        <mat-error>{{ getErrorMessage('pages') }}</mat-error>
+      }
+    </mat-form-field>
+  
+    <!-- Campo Fecha de Publicación -->
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Fecha de publicación</mat-label>
+      <input
+        matInput
+        type="date"
+        formControlName="publishDate"
+        class="text-sm">
+      <mat-icon matSuffix>calendar_today</mat-icon>
+      @if (getErrorMessage('publishDate')) {
+        <mat-error>{{ getErrorMessage('publishDate') }}</mat-error>
+      }
+    </mat-form-field>
+  
+    <!-- Botones de acción -->
+    <div class="flex space-x-3 pt-4">
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="bookForm.invalid"
+        class="flex-1">
+        <mat-icon class="mr-2">save</mat-icon>
+        {{ bookToEdit() ? 'Actualizar' : 'Guardar' }}
+      </button>
+      
+      <button
+        mat-stroked-button
+        type="button"
+        (click)="onCancel()"
+        class="flex-1">
+        <mat-icon class="mr-2">cancel</mat-icon>
+        Cancelar
+      </button>
+    </div>
+  </form>

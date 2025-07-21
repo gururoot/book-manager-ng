@@ -1,0 +1,62 @@
+<div class="min-h-screen bg-gray-50">
+    <!-- Header -->
+    <div class="bg-white shadow-sm border-b">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center space-x-3">
+            <div class="flex-shrink-0">
+              <mat-icon class="text-primary-600 text-3xl">book</mat-icon>
+            </div>
+            <div>
+              <h1 class="text-xl font-semibold text-gray-900">Gestor de libros</h1>
+              <!--<p class="text-sm text-gray-600">Administra tu colección de libros de forma sencilla y elegante.</p>-->
+            </div>
+          </div>
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="onAddNewBook()"
+            class="flex items-center space-x-2">
+            <mat-icon>add_circle</mat-icon>
+            <span>Añadir Libro</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Lista de Libros -->
+        <div class="lg:col-span-8">
+          <app-book-list
+            (editBook)="onEditBook($event)"
+            (deleteBook)="onDeleteBook($event)">
+          </app-book-list>
+        </div>
+  
+        <!-- Formulario de Libro -->
+        <div class="lg:col-span-4">
+          @if (showForm()) {
+            <div class="sticky top-8">
+              <mat-card class="shadow-lg">
+                <mat-card-header>
+                  <mat-card-title class="text-lg font-semibold text-gray-900">
+                    {{ formTitle() }}
+                  </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                  <app-book-form
+                    [bookToEdit]="selectedBook()"
+                    (saveBook)="onSaveBook($event)"
+                    (cancelForm)="onCancelForm()">
+                  </app-book-form>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
